@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+    const int SIZE = 10;
+    int numbers[SIZE]; 
+    int distinct[SIZE]; 
+    int distinctCount = 0; 
+    cout << "Enter ten numbers: ";
+    for (int i = 0; i < SIZE; i++) {
+        cin >> numbers[i];
+        bool isNew = true;
+        for (int j = 0; j < distinctCount; j++) {
+            if (distinct[j] == numbers[i]) {
+                isNew = false;
+                break;
+            }
+        }
+        if (isNew) {
+            distinct[distinctCount] = numbers[i];
+            distinctCount++;
+        }
+    }
+    cout << "The distinct numbers are: ";
+    for (int i = 0; i < distinctCount; i++) {
+        cout << distinct[i]<<'\t';
+    }
+    cout << endl;
+    return 0;
+}
